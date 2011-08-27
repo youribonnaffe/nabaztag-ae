@@ -8,7 +8,10 @@ if(currentMinute != Mem.lastMsg && currentMinute % Mem.surprisePeriodInMin == 0 
 	log.info "play sound"
 	def packet = new Packet();
 	def message = new MessageBlock(139)
-	def fileToPlay = "http://nabaztag-cdn.appspot.com/surprise/"+(new Random(System.currentTimeMillis()).nextInt(298)+1)+".mp3"
+	def fileToPlay = "http://nabaztag-cdn.appspot.com/short/ding.mp3"
+	if(currentMinute == 0){
+		"http://nabaztag-cdn.appspot.com/surprise/"+(new Random(System.currentTimeMillis()).nextInt(298)+1)+".mp3"
+	}
 	log.info fileToPlay
 	message.addPlaySoundCommand(fileToPlay)
 	packet.addBlock(message)

@@ -5,7 +5,7 @@ import com.appspot.nabaztag.PingIntervalBlock
 class Mem {
 
 	static def lastMsg = -1
-	static def surprisePeriodInMin = 15
+	static def surprisePeriodInMin = 30
 	static def packet = new Packet()
 	static def packetGeneratePacket
 
