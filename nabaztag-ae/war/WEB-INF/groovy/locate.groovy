@@ -5,7 +5,7 @@ log.info params.toString()
 
 def server = "192.168.1.95:8080";
 if (SystemProperty.environment.value() == SystemProperty.environment.value().Production) {
-	server = "nabaztagae.appspot.com"
+	server = "nabaztag-ae.appspot.com"
 }
 sout.println "ping "+server
 sout.println "broad "+server

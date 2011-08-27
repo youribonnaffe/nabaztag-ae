@@ -2,18 +2,22 @@ import com.google.appengine.api.utils.SystemProperty
 
 log.info "bootcode"
 
-def bootcode = new File("bootcode.bin").bytes
-response.contentLength = bootcode.length
-response.setHeader "Server", null
+def bootcode = new File("bootcode.bin")
+def bootcodeAsBytes = bootcode.bytes
+response.contentLength = bootcodeAsBytes.length
+
+if (app.env.name == SystemProperty.Environment.Value.Production) {
+	sout.write bootcodeAsBytes
+} else {
+	sendBootCodeSlowly(bootcode)
+}
 response.status = 200
 
-if (SystemProperty.environment.value() == SystemProperty.environment.value().Production) {
-	sout.write bootcode
-} else {
-	def fin = new File("bootcode.bin").newInputStream()
+
+private sendBootCodeSlowly(bootcode) {
+	def fin = bootcode.newInputStream()
 	while (true) {
 		int available = fin.available();
-
 		if (available > 0) {
 			int bufferSize = available;
 			int BUFFER_SIZE = 1000;

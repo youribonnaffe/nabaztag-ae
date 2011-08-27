@@ -38,11 +38,11 @@ switch(params["t"]){
 		log.info rightEarMove.toString() + " " + leftEarMove.toString()
 		message.setRightEarValue(rightEarMove)
 		message.setLeftEarValue(leftEarMove)
-		
-		//MessageBlock mb = new MessageBlock(Integer.parseInt("7FFFFFFF", 16));
-		//packet.addBlock(mb)
+
+		MessageBlock mb = new MessageBlock(Integer.parseInt("7FFFFFFF", 16));
+	//packet.addBlock(mb)
 		packet.addBlock(message)
-		//packet.addBlock(new PingIntervalBlock(10))
+	//packet.addBlock(new PingIntervalBlock(10))
 		def packetGeneratePacket = packet.generatePacket()
 		response.contentLength = packetGeneratePacket.length
 		sout.write packetGeneratePacket
