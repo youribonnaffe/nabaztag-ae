@@ -5,7 +5,6 @@ apply plugin: 'groovy'
 apply plugin: 'gae'
 apply plugin: 'gaelyk'
 apply plugin: 'eclipse'
-apply plugin: 'idea'
 
 def compatibilityVersion = 1.5
 sourceCompatibility = compatibilityVersion
@@ -81,18 +80,6 @@ task copyRuntimeLibraries {
     copy {
         into webAppLibDirName
         from configurations.runtime.files
-    }
-}
-
-ideaProject {
-    javaVersion = compatibilityVersion
-
-    withXml { provider ->
-        def node = provider.asNode()
-
-        // Set Gradle home
-        def gradleSettings = node.appendNode('component', [name: 'GradleSettings'])
-        gradleSettings.appendNode('option', [name: 'SDK_HOME', value: gradle.gradleHomeDir])
     }
 }
 
