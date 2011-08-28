@@ -1,9 +1,19 @@
 import com.appspot.nabaztag.AmbientBlock
 import com.appspot.nabaztag.MessageBlock
 import com.appspot.nabaztag.Packet
+import com.google.appengine.api.datastore.Entity
 
 log.info "rfid"
 log.info params.toString()
+
+Entity rabbit = datastore.get('rabbit', params.sn)
+rabbit.lastRfid = params.t
+rabbit.save()
+
+Entity rfid = new Entity('rfid', params.t+params.sn)
+rfid.rabbit = params.sn
+rfid.mac = params.t
+rfid.save()
 
 response.status = 200
 

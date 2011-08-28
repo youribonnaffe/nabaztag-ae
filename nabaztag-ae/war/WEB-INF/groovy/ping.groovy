@@ -1,6 +1,6 @@
 import com.appspot.nabaztag.MessageBlock
 import com.appspot.nabaztag.Packet
-
+log.info params.toString()
 def now = Calendar.instance
 def currentMinute = now.get(Calendar.MINUTE)
 if(currentMinute != Mem.lastMsg && currentMinute % Mem.surprisePeriodInMin == 0 ){
@@ -10,7 +10,7 @@ if(currentMinute != Mem.lastMsg && currentMinute % Mem.surprisePeriodInMin == 0 
 	def message = new MessageBlock(139)
 	def fileToPlay = "http://nabaztag-cdn.appspot.com/short/ding.mp3"
 	if(currentMinute == 0){
-		"http://nabaztag-cdn.appspot.com/surprise/"+(new Random(System.currentTimeMillis()).nextInt(298)+1)+".mp3"
+		fileToPlay = "http://nabaztag-cdn.appspot.com/surprise/"+(new Random(System.currentTimeMillis()).nextInt(298)+1)+".mp3"
 	}
 	log.info fileToPlay
 	message.addPlaySoundCommand(fileToPlay)
