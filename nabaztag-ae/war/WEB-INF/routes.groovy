@@ -1,12 +1,16 @@
-get "/vl/bc.jsp",  		forward: "/bc.groovy"
-get "/vl/locate.jsp",	forward: "/locate.groovy"
-get "/vl/p4.jsp",		forward: "/ping.groovy"
-get "/vl/rfid.jsp",		forward: "/rfid.groovy"
+get "/vl/bc.jsp",  		forward: "/vl/bc.groovy"
+get "/vl/locate.jsp",		forward: "/vl/locate.groovy"
+get "/vl/p4.jsp",		forward: "/vl/ping.groovy"
+get "/vl/rfid.jsp",		forward: "/vl/rfid.groovy"
 
-get "/web", forward: "/home.groovy"
-get "/web/lastRfid", forward: "/lastRfid.groovy"
-post "/web/saveRfid", forward: "/saveRfid.groovy"
+get "/web", 			forward: "/web/home.groovy"
+get "/web/lastRfid", 		forward: "/web/lastRfid.groovy"
 
-get "/web/register", forward: "/register.groovy"
-post "/web/register", forward: "/register.groovy"
-get "/", redirect: "/web"
+get "/web/editRfid", 		forward: "/web/editRfid.groovy"
+
+post "/web/saveRabbit", 	forward: "/web/saveRabbit.groovy"
+post "/web/saveRfid", 		forward: "/web/saveRfid.groovy"
+
+post "/web/register", 		forward: "/web/register.groovy"
+
+get "/", 			redirect: "/web"

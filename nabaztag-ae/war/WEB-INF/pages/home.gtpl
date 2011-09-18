@@ -6,7 +6,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap-1.1.1.min.css">
+    <link rel="stylesheet" href="jquery.dialog2.css">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="jquery.dialog2.js"></script>
+  	<script src="jquery.validate.js"></script>
     <script>
     (function(\$) {
     \$.fn.poll = function(options){
@@ -35,82 +38,127 @@
 })(jQuery);
 		\$("#lastRfid").poll({
 		    url: "/web/lastRfid",
-		    interval: 1000,
+		    interval: 10000,
 		    type: "GET",
 		    success: function(data){
-		        \$("#lastRfid > p > span").text(data);
-		        \$("#lastRfid").show();
+		    	if(data && data != "null") {
+		        	\$("#lastRfid > p > span").text(data);
+		        	\$("#lastRfid").show();
+		        }
 		    }
 		});
+		
 		\$(document).ready(function(){
-			\$('#rfidDialog').hide();
-			\$('#submitRfid').click(function() {
-	  			\$('#formRfid').submit();
-			});
-			\$('.closeRfid').click(function() {
-	  			\$('#rfidDialog').hide();
-			});
-			\$('.editRfid').click(function() {
-				var rfidKey = \$(this).text()
-				\$("#rfidHeader").text("RFID " + rfidKey);
-	  			\$('#rfidDialog').show();
-	  			\$('#rfidKey').val(\$(this).attr("href"));
-			});
+			\$("#register-dialog").dialog2({
+	            showCloseHandle: false,
+	            removeOnClose: false,
+	            autoOpen: false,
+	            buttons: {
+	                Register: {
+	                    primary: true,
+	                    click: function() {
+	                    	\$("#register-form").submit();
+	                    	if(\$("#register-form").valid()){
+	                        	\$(this).dialog2("close");
+                        	}
+	                    }
+	                }
+            	}
+	        });
+
+	        \$("#open-register-dialog").click(function(event) {
+	            event.preventDefault();
+	            \$("#register-dialog").dialog2("open");
+	        });
+        	\$("#register-form").validate();
+
+	        \$(".open-rfid-dialog").click(function(event) {
+	       		var rfidId = \$(this).attr("href").split('#')[1]
+				\$('<div/>').dialog2({
+					title: "Edit RFID",
+					removeOnClose: true,
+	                content: "/web/editRfid?rfidKey="+rfidId,
+	                id: "rfid-dialog"
+	            });
+	            event.preventDefault();
+	        });
+	        
+        	\$("#rabbit-dialog").dialog2({
+	            showCloseHandle: false,
+	            removeOnClose: false,
+	            autoOpen: false,
+	            buttons: {
+	                Save: {
+	                    primary: true,
+	                    click: function() {
+	                    	\$("#rabbit-form").submit();
+	                    	if(\$("#rabbit-form").valid()){
+	                        	\$(this).dialog2("close");
+                        	}
+	                    }
+	                }
+            	}
+	        });
+
+	        \$(".open-rabbit-dialog").click(function(event) {
+	       		var args = \$(this).attr("href").split("#")
+	       		var rabbitKey = args[1]
+	       		var name = args[2]
+	  			\$('#rabbit-key').val(rabbitKey);
+	  			\$('#rabbit-name').val(name);
+	            event.preventDefault();
+	            \$("#rabbit-dialog").dialog2("open");
+	        });
+        	\$("#rabbit-form").validate();
+        	
 		});
     </script>
     <style type="text/css">
+		html, body {
+			height: 100%;
+		}
+		.wrapper {
+			min-height: 90%;
+		}
+		.xfooter, .push {
+			height: 5%;
+		}
 		.color:focus { 
-    outline: none; 
-}
-
+    		outline: none; 
+		}
 	</style>
   </head>
 <body>
-	<div id="rfidDialog" class="modal" style="position: float; top: 25%; left: 25%; margin: 0 auto; z-index: 1">
-          <div class="modal-header">
-            <h3 id="rfidHeader"></h3>
-            <a href="#" class="close closeRfid">&times;</a>
-          </div>
-          <div class="modal-body">
-            <form id="formRfid" class="form-stacked" method="post" action="/web/saveRfid">
-            <input id="rfidKey" name="key" type="hidden" />
+	<div id="register-dialog">
+        <h1>Register a rabbit</h1>
+        <form id="register-form" class="form-stacked" method="post" action="/web/register">
             <fieldset>
 	            <div class="clearfix">
-		            <label>Name</label>
+		            <label>Rabbit's MAC address</label>
 		            <div class="input">
-              			<input class="xlarge" id="name" name="name" size="30" type="text" />
+              			<input class="xlarge required" name="mac" size="30" type="text" />
             		</div>
-          		</div>
-          		<div class="clearfix">
-		            <label>Color</label>
-		            <input id="colorPicked" name="color" type="hidden" />
-		            <div id="colorPicker" class="input" style="font-size:30px">
-		            	<a class="color" href="#" style="color:blue">&#9632;</a>
-		            	<a class="color" href="#" style="color:orange">&#9632;</a>
-		            	<a class="color" href="#" style="color:greenyellow">&#9632;</a>
-		            	<a class="color" href="#" style="color:mediumvioletred">&#9632;</a>
-		            	<a class="color" href="#" style="color:silver">&#9632;</a>
-		            	<a class="color" href="#" style="color:yellow">&#9632;</a>
-		            	<a class="color" href="#" style="color:red">&#9632;</a>  
-            		</div>
-            		<script>
-					   \$("#colorPicker > a").click(function () {
-					    	\$("#colorPicked").val(\$(this).css("color"));
-					    	\$("#colorPicker > a").css("text-decoration","");
-					    	\$(this).css("text-decoration","underline");
-					    });
-				    </script>
           		</div>
             </fieldset>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <a id="submitRfid" href="#" class="btn primary">Save</a>
-            <a href="#" class="closeRfid btn secondary">Cancel</a>
-          </div>
+        </form>
 	</div>
-
-	<div class="container">
+	
+	<div id="rabbit-dialog">
+        <h1>Edit Rabbit</h1>
+        <form id="rabbit-form" class="form-stacked" method="post" action="/web/saveRabbit">
+        <input id="rabbit-key" name="key" type="hidden" />
+        <fieldset>
+            <div class="clearfix">
+	            <label>Name</label>
+	            <div class="input">
+          			<input id="rabbit-name" class="xlarge required" name="name" size="30" type="text" />
+        		</div>
+      		</div>
+        </fieldset>
+        </form>
+	</div>
+	
+	<div class="container wrapper">
 		<section>
 			<div class="page-header">
 				<small style="float:right"><a href="${users.createLogoutURL("/web")}">Sign out</a></small>
@@ -122,15 +170,15 @@
 			<div class="row">
 				<div class="span5 columns">
 		            <h4>Rabbit</h4>
-		        	<p>${rabbit.key}</p>
+		        	<p><a class="open-rabbit-dialog" href="#${rabbit.key.name}#${rabbit.name}">${rabbit.name}</a></p>
 		        	
 		        	<div id="lastRfid" class="alert-message info">
-        				<a id="close" class="close" href="#">&times;</a>
+        				<a class="close" href="#">&times;</a>
 				        <p><strong>Last RFID: </strong><span>${rabbit.lastRfid}<span></p>
       				</div>
       				<script>
-					   \$("#close").click(function () {
-					    	\$("#lastRfid").hide();
+					   \$(".close").click(function () {
+					    	\$(this).parent().hide();
 					    });
 				    </script>
 				</div>
@@ -140,9 +188,9 @@
 		            <%
 		            	request.rfids[rabbit.key.name].each { rfid ->
 		        	%>
-		            		<li><a class="editRfid" style="color: ${rfid.color}" href="#${rfid.key.name}">
+		            		<li><a class="open-rfid-dialog" style="color: ${rfid.color}" href="#${rfid.key.name}">
 		            		<%
-		            			print rfid.name == null ? rfid.mac : rfid.name
+		            			print rfid.name
 	            			%>
 		            		</a></li>
 		        	<%
@@ -154,22 +202,19 @@
 		<%
 			}
 		%>
+		<button id="open-register-dialog" class="info btn"/>+ Rabbit</button>
 		</section>
+		<div class="push"></div>
 	</div>
-	<br/><br/>
-		
-		
-		<br/>
-		<br/>
-		<form action="/web/register" method="post">
-		Rabbit mac: <input type="text" name="mac" /><br />
-		<input type="submit" value="Register" />
-		</form>
-		<br/>
-		  
 	
-
-
-
+    <footer class="footer xfooter">
+      <div class="container">
+        <p>
+       		Thanks to ... <br/>
+          	<a href="https://github.com/youribonnaffe/nabaztag-ae/issues/new" target="_blank">Issues ?</a>
+        </p>
+      </div>
+     </footer
+     
   </body>
 </html>
