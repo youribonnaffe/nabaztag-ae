@@ -6,6 +6,7 @@ get "/vl/rfid.jsp",		forward: "/vl/rfid.groovy"
 get "/web", 			forward: "/web/home.groovy"
 get "/web/lastRfid", 		forward: "/web/lastRfid.groovy"
 
+get "/web/editRabbit", 		forward: "/web/editRabbit.groovy"
 get "/web/editRfid", 		forward: "/web/editRfid.groovy"
 
 post "/web/saveRabbit", 	forward: "/web/saveRabbit.groovy"
