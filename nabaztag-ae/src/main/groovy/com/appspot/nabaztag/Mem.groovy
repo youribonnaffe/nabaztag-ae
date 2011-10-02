@@ -10,7 +10,6 @@ class Mem {
 	static def surprisePeriodInMin = 30
 	static def packet = new Packet()
 	static def packetGeneratePacket
-	static def lastRadio = -1
 
 	static {
 		def packet = new Packet()

@@ -6,10 +6,9 @@ import com.appspot.nabaztag.Packet
 //log.info params.toString()
 def now = Calendar.instance
 def currentMinute = now.get(Calendar.MINUTE)
-def currentHour = now.get(Calendar.HOUR)
+def currentHour = now.get(Calendar.HOUR_OF_DAY)
 def currentDay = now.getAt(Calendar.DAY_OF_MONTH)
-if(currentHour == 5 && currentMinute == 5 && Mem.lastRadio != currentDay){
-    Mem.lastRadio = currentDay
+if(currentHour == 5 && currentMinute == 5){
     def packet = new Packet();
     def message = new MessageBlock(139)
     message.addPlayStreamCommand("http://mp3.live.tv-radio.com/franceinter/all/franceinter-32k.mp3");
