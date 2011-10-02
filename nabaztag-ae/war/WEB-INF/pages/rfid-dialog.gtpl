@@ -60,9 +60,10 @@
     	\$("#rfid-action").load("rfid_actions/"+\$(this).val()+".html");
     	\$("#rfid-action").show();
     });
+    <% if(request.rfid.action) { %>
     \$("#rfid-action").load("rfid_actions/${request.rfid.action}.html", function() {
-	    \$("#rfid-action-param").val("${request.rfid.actionParam}"); 
+	    \$("#rfid-action-param").text("<%=request.rfid.actionParam.replace("\r\n","\\n")%>"); 
 	});
-    
+    <% } %>
 	\$("#rfid-form").validate();
 </script>

@@ -11,44 +11,8 @@
 <script src="jquery.dialog2.js"></script>
 <script src="jquery.validate.js"></script>
 <script>
-    (function(\$) {
-    \$.fn.poll = function(options){
-       var \$this = \$(this);
-       // extend our default options with those provided
-       var opts = \$.extend({}, \$.fn.poll.defaults, options);
-       setInterval(update, opts.interval);
- 
-       // method used to update element html
-       function update(){
-           \$.ajax({
-               type: opts.type,
-               url: opts.url,
-               success: opts.success
-           });
-       };
-    };
- 
-    // default options
-    \$.fn.poll.defaults = {
-       type: "POST",
-       url: ".",
-       success: '',
-       interval: 2000
-    };
-})(jQuery);
-		\$("#lastRfid").poll({
-		    url: "/web/lastRfid",
-		    interval: 10000,
-		    type: "GET",
-		    success: function(data){
-		    	if(data && data != "null") {
-		        	\$("#lastRfid > p > span").text(data);
-		        	\$("#lastRfid").show();
-		        }
-		    }
-		});
-		
 		\$(document).ready(function(){
+			
 			\$("#register-dialog").dialog2({
 	            showCloseHandle: false,
 	            removeOnClose: false,
@@ -142,20 +106,8 @@ html,body {
                 <div class="span5 columns">
                     <h4>Rabbit</h4>
                     <p>
-                        <a class="open-rabbit-dialog" href="#${rabbit.key.name}">${rabbit.name}</a>
+                        <a class="open-rabbit-dialog" href="#${rabbit.key.name}" title="Last seen RFID: ${rabbit.lastRfid ? rabbit.lastRfid : 'none'}">${rabbit.name}</a>
                     </p>
-
-                    <div id="lastRfid" class="alert-message info">
-                        <a class="close" href="#">&times;</a>
-                        <p>
-                            <strong>Last RFID: </strong><span>${rabbit.lastRfid}</span>
-                        </p>
-                    </div>
-                    <script>
-					   \$(".close").click(function () {
-					    	\$(this).parent().hide();
-					    });
-				    </script>
                 </div>
                 <div class="span5 columns">
                     <h4>RFIDs</h4>
