@@ -31,7 +31,7 @@ def currentDay = now.getAt(Calendar.DAY_OF_MONTH)
 if(currentHour == 5 && currentMinute == 5){
     def packet = new Packet();
     def message = new MessageBlock(139)
-    message.addPlayStreamCommand("http://mp3.live.tv-radio.com/franceinter/all/franceinter-32k.mp3");
+    message.addPlayStreamCommand("http://95.81.147.3/franceinter/all/franceinter-32k.mp3");
     packet.addBlock(message)
     def packetGeneratePacket = packet.generatePacket()
     response.contentLength = packetGeneratePacket.length
