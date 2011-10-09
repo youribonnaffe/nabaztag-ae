@@ -1,4 +1,381 @@
 <fieldset>
- <label>Stop</label>
- <input id="rfid-action-param" class="xlarge required" name="rfidActionParam" size="30" type="text" />
+    <label>Stop</label>
+    <select id="rfid-action-param" name="rfidActionParam">
+        <option value="AIGUILLE">AIGUILLE</option>
+        <option value="AMITIE">AMITIE</option>
+        <option value="AMPERE">AMPERE</option>
+        <option value="ARAGO">ARAGO</option>
+        <option value="ARTOIS">ARTOIS</option>
+        <option value="ATELIERS MUNICIPAUX">ATELIERS MUNICIPAUX</option>
+
+        <option value="BACCHUS">BACCHUS</option>
+        <option value="BAILLE">BAILLE</option>
+        <option value="BASCULE">BASCULE</option>
+        <option value="BASILIQUE">BASILIQUE</option>
+        <option value="BATTANT">BATTANT</option>
+        <option value="BAVEREZ">BAVEREZ</option>
+        <option value="BEARN">BEARN</option>
+        <option value="BEAUQUIER">BEAUQUIER</option>
+        <option value="BEAUX ARTS">BEAUX ARTS</option>
+
+        <option value="BELFORT">BELFORT</option>
+        <option value="BELIN">BELIN</option>
+        <option value="BELVEDERE">BELVEDERE</option>
+        <option value="BIBLIOTHEQUE UNIVERSITAIRE">BIBLIOTHEQUE UNIVERSITAIRE</option>
+        <option value="BLUM">BLUM</option>
+        <option value="BOURGEOIS">BOURGEOIS</option>
+        <option value="BOURGOGNE">BOURGOGNE</option>
+        <option value="BOUVARD">BOUVARD</option>
+        <option value="BRABANT">BRABANT</option>
+
+        <option value="BREGILLE">BREGILLE</option>
+        <option value="BREME">BREME</option>
+        <option value="BROSSOLETTE GRETA">BROSSOLETTE GRETA</option>
+        <option value="BRULARD">BRULARD</option>
+        <option value="BRUYERES">BRUYERES</option>
+        <option value="BUFFON">BUFFON</option>
+        <option value="BUGNET">BUGNET</option>
+        <option value="CAISSE D EPARGNE">CAISSE D EPARGNE</option>
+        <option value="CANAL TARRAGNOZ">CANAL TARRAGNOZ</option>
+
+        <option value="CANOT">CANOT</option>
+        <option value="CARMES">CARMES</option>
+        <option value="CARNOT">CARNOT</option>
+        <option value="CARRIERE">CARRIERE</option>
+        <option value="CASERNES">CASERNES</option>
+        <option value="CASSIN">CASSIN</option>
+        <option value="CENTRE COMMERCIAL">CENTRE COMMERCIAL</option>
+        <option value="CENTRE DE TRI">CENTRE DE TRI</option>
+        <option value="CENTRE ST PIERRE">CENTRE ST PIERRE</option>
+
+        <option value="CH. DE LA CROIX">CH. DE LA CROIX</option>
+        <option value="CH. DE LA SELLE">CH. DE LA SELLE</option>
+        <option value="CH. DE PALENTE">CH. DE PALENTE</option>
+        <option value="CH. DE VALENTIN">CH. DE VALENTIN</option>
+        <option value="CH. DE VELOTTE">CH. DE VELOTTE</option>
+        <option value="CH. DES FOUNOTTES">CH. DES FOUNOTTES</option>
+        <option value="CH. DES PLANCHES">CH. DES PLANCHES</option>
+        <option value="CHAFFANJON">CHAFFANJON</option>
+        <option value="CHAILLE">CHAILLE</option>
+
+        <option value="CHALEZEULE">CHALEZEULE</option>
+        <option value="CHAMARS">CHAMARS</option>
+        <option value="CHAMPAGNE">CHAMPAGNE</option>
+        <option value="CHAMPETRE">CHAMPETRE</option>
+        <option value="CHANOIS">CHANOIS</option>
+        <option value="CHARDONNET">CHARDONNET</option>
+        <option value="CHARIGNEY">CHARIGNEY</option>
+        <option value="CHARMARIN">CHARMARIN</option>
+        <option value="CHARMILLES">CHARMILLES</option>
+
+        <option value="CHASNOT">CHASNOT</option>
+        <option value="CHATEAUFARINE">CHATEAUFARINE</option>
+        <option value="CHAUDANNE">CHAUDANNE</option>
+        <option value="CHEMIN FRANCAIS">CHEMIN FRANCAIS</option>
+        <option value="CHEVREUSE">CHEVREUSE</option>
+        <option value="CHOPARD">CHOPARD</option>
+        <option value="CHOPIN">CHOPIN</option>
+        <option value="CHURCHILL">CHURCHILL</option>
+        <option value="CIMETIERE">CIMETIERE</option>
+
+        <option value="CIMETIERE D AVANNE">CIMETIERE D AVANNE</option>
+        <option value="CITADELLE">CITADELLE</option>
+        <option value="CITE DE LA BAUME">CITE DE LA BAUME</option>
+        <option value="CITE VIOTTE">CITE VIOTTE</option>
+        <option value="CITES DES GACOGNES">CITES DES GACOGNES</option>
+        <option value="CLAIRS SOLEILS">CLAIRS SOLEILS</option>
+        <option value="CLEMENCEAU">CLEMENCEAU</option>
+        <option value="CLINIQUE ST VINCENT">CLINIQUE ST VINCENT</option>
+        <option value="CLOS MUNIER">CLOS MUNIER</option>
+
+        <option value="COLLEGE PROUDHON">COLLEGE PROUDHON</option>
+        <option value="COLOMBOT">COLOMBOT</option>
+        <option value="COLSENET">COLSENET</option>
+        <option value="CONCORDE">CONCORDE</option>
+        <option value="CORVEE">CORVEE</option>
+        <option value="COUBERTIN">COUBERTIN</option>
+        <option value="COURBET">COURBET</option>
+        <option value="COURTILS">COURTILS</option>
+        <option value="CRAS ROUGEOT">CRAS ROUGEOT</option>
+
+        <option value="CREUSE">CREUSE</option>
+        <option value="CROIX D ARENES">CROIX D ARENES</option>
+        <option value="CROIX DE PALENTE">CROIX DE PALENTE</option>
+        <option value="CROIZAT">CROIZAT</option>
+        <option value="CROUS UNIVERSITE">CROUS UNIVERSITE</option>
+        <option value="CUL DES PRES">CUL DES PRES</option>
+        <option value="CUSENIER">CUSENIER</option>
+        <option value="DANTON">DANTON</option>
+        <option value="DAVID">DAVID</option>
+
+        <option value="DE VIGNY">DE VIGNY</option>
+        <option value="DEBUSSY">DEBUSSY</option>
+        <option value="DELAVELLE">DELAVELLE</option>
+        <option value="DEMANGEL">DEMANGEL</option>
+        <option value="DENFERT ROCHEREAU">DENFERT ROCHEREAU</option>
+        <option value="DEVILLE">DEVILLE</option>
+        <option value="DOLTO">DOLTO</option>
+        <option value="DONZELOT">DONZELOT</option>
+        <option value="DUCHAILLUT">DUCHAILLUT</option>
+
+        <option value="DUET">DUET</option>
+        <option value="DUPLAIN">DUPLAIN</option>
+        <option value="ECHANGEUR DE VALENTIN">ECHANGEUR DE VALENTIN</option>
+        <option value="ECOLE DES QUATRE VENTS">ECOLE DES QUATRE VENTS</option>
+        <option value="ECOLE DES TORCOLS">ECOLE DES TORCOLS</option>
+        <option value="EDGAR FAURE">EDGAR FAURE</option>
+        <option value="EDISON">EDISON</option>
+        <option value="EINSTEIN">EINSTEIN</option>
+        <option value="ENSMM">ENSMM</option>
+
+        <option value="ENVELMEY">ENVELMEY</option>
+        <option value="EPOISSES">EPOISSES</option>
+        <option value="ESCALE">ESCALE</option>
+        <option value="ESPERANCE">ESPERANCE</option>
+        <option value="ESPLANADE">ESPLANADE</option>
+        <option value="ESSARTS">ESSARTS</option>
+        <option value="EUGENE SAVOYE">EUGENE SAVOYE</option>
+        <option value="EUROPE ALLENDE">EUROPE ALLENDE</option>
+        <option value="FABRE">FABRE</option>
+
+        <option value="FANART">FANART</option>
+        <option value="FAUBOURG TARRAGNOZ">FAUBOURG TARRAGNOZ</option>
+        <option value="FLANDRES">FLANDRES</option>
+        <option value="FLEMING">FLEMING</option>
+        <option value="FLORE">FLORE</option>
+        <option value="FLUTTES AGASSES">FLUTTES AGASSES</option>
+        <option value="FOCH GARE">FOCH GARE</option>
+        <option value="FONTAINE ECU">FONTAINE ECU</option>
+        <option value="FONTENOTTES">FONTENOTTES</option>
+
+        <option value="FORT DE BREGILLE">FORT DE BREGILLE</option>
+        <option value="FOUNOTTES">FOUNOTTES</option>
+        <option value="FOURIER">FOURIER</option>
+        <option value="FOYER">FOYER</option>
+        <option value="FRANCE 3">FRANCE 3</option>
+        <option value="FRANCHE COMTE">FRANCHE COMTE</option>
+        <option value="FRANCIS CLERC">FRANCIS CLERC</option>
+        <option value="FRESNEL">FRESNEL</option>
+        <option value="FUNICULAIRE">FUNICULAIRE</option>
+
+        <option value="GAIFFE">GAIFFE</option>
+        <option value="GALILEE">GALILEE</option>
+        <option value="GAMBETTA">GAMBETTA</option>
+        <option value="GARE DE LA MOUILLERE">GARE DE LA MOUILLERE</option>
+        <option value="GARE GLACIS">GARE GLACIS</option>
+        <option value="GARE SNCF VIOTTE">GARE SNCF VIOTTE</option>
+        <option value="GARNIER">GARNIER</option>
+        <option value="GAUGUIN">GAUGUIN</option>
+        <option value="GAY LUSSAC">GAY LUSSAC</option>
+
+        <option value="GOUNOD">GOUNOD</option>
+        <option value="GRAND BUISSON">GRAND BUISSON</option>
+        <option value="GRANDS BAS">GRANDS BAS</option>
+        <option value="GRANDS PRES">GRANDS PRES</option>
+        <option value="GRANGE BOREE">GRANGE BOREE</option>
+        <option value="GRANGE MARGUET">GRANGE MARGUET</option>
+        <option value="GRANGES">GRANGES</option>
+        <option value="GRANVELLE">GRANVELLE</option>
+        <option value="GRAY">GRAY</option>
+
+        <option value="GRENOT">GRENOT</option>
+        <option value="GRETTE">GRETTE</option>
+        <option value="GYMNASE">GYMNASE</option>
+        <option value="HEITZ">HEITZ</option>
+        <option value="HENRI BAIGUE">HENRI BAIGUE</option>
+        <option value="HOPITAL J. MINJOZ">HOPITAL J. MINJOZ</option>
+        <option value="HUIT SEPTEMBRE">HUIT SEPTEMBRE</option>
+        <option value="ILE DE FRANCE">ILE DE FRANCE</option>
+        <option value="INTERMARCHE">INTERMARCHE</option>
+
+        <option value="IUT">IUT</option>
+        <option value="JACOBINS">JACOBINS</option>
+        <option value="JACQUARD">JACQUARD</option>
+        <option value="JARDIN BOTANIQUE">JARDIN BOTANIQUE</option>
+        <option value="JEAN CORNET">JEAN CORNET</option>
+        <option value="JEAN DE VIENNE">JEAN DE VIENNE</option>
+        <option value="JEAN JAURES">JEAN JAURES</option>
+        <option value="JEANNETTES">JEANNETTES</option>
+        <option value="JOUCHOUX">JOUCHOUX</option>
+
+        <option value="JOURNAUX">JOURNAUX</option>
+        <option value="JULES FERRY">JULES FERRY</option>
+        <option value="JULES HAAG">JULES HAAG</option>
+        <option value="JUSTICES">JUSTICES</option>
+        <option value="KENNEDY">KENNEDY</option>
+        <option value="KEPLER">KEPLER</option>
+        <option value="KIABI">KIABI</option>
+        <option value="KOSMA">KOSMA</option>
+        <option value="LA BUTTE">LA BUTTE</option>
+
+        <option value="LA FAYETTE">LA FAYETTE</option>
+        <option value="LANCHY">LANCHY</option>
+        <option value="LANGUEDOC">LANGUEDOC</option>
+        <option value="LARMET">LARMET</option>
+        <option value="LAVOISIER">LAVOISIER</option>
+        <option value="LEBEUF">LEBEUF</option>
+        <option value="LECLERC">LECLERC</option>
+        <option value="LECOURBE">LECOURBE</option>
+        <option value="LES OISEAUX">LES OISEAUX</option>
+
+        <option value="LIBERTE">LIBERTE</option>
+        <option value="LILAS">LILAS</option>
+        <option value="LUMIERE">LUMIERE</option>
+        <option value="LUXEMBOURG">LUXEMBOURG</option>
+        <option value="LYCEE LEDOUX">LYCEE LEDOUX</option>
+        <option value="LYCEE PERGAUD">LYCEE PERGAUD</option>
+        <option value="MAGELLAN">MAGELLAN</option>
+        <option value="MAIRIE">MAIRIE</option>
+        <option value="MAISON DE RETRAITE">MAISON DE RETRAITE</option>
+
+        <option value="MAISON DU MIEL">MAISON DU MIEL</option>
+        <option value="MALCOMBE">MALCOMBE</option>
+        <option value="MALHERBE">MALHERBE</option>
+        <option value="MARIE LOUISE">MARIE LOUISE</option>
+        <option value="MARMIER">MARMIER</option>
+        <option value="MAROT">MAROT</option>
+        <option value="MATY">MATY</option>
+        <option value="MAZAGRAN">MAZAGRAN</option>
+        <option value="MERCATOR">MERCATOR</option>
+
+        <option value="MESLIER">MESLIER</option>
+        <option value="METIN">METIN</option>
+        <option value="MICROPOLIS">MICROPOLIS</option>
+        <option value="MIDOL">MIDOL</option>
+        <option value="MIRABEAU">MIRABEAU</option>
+        <option value="MONTARMOTS">MONTARMOTS</option>
+        <option value="MONTBOUCONS">MONTBOUCONS</option>
+        <option value="MOUILLERE">MOUILLERE</option>
+        <option value="MUTUALITE">MUTUALITE</option>
+
+        <option value="NICOLAS BRUAND">NICOLAS BRUAND</option>
+        <option value="NOTILUS">NOTILUS</option>
+        <option value="NOTRE DAME">NOTRE DAME</option>
+        <option value="OBSERVATOIRE AFPA">OBSERVATOIRE AFPA</option>
+        <option value="OFFICE DE TOURISME">OFFICE DE TOURISME</option>
+        <option value="ORATOIRE">ORATOIRE</option>
+        <option value="ORCHAMPS">ORCHAMPS</option>
+        <option value="PALAIS DES SPORTS">PALAIS DES SPORTS</option>
+        <option value="PALENTE Z.I.">PALENTE Z.I.</option>
+
+        <option value="PAPILLON">PAPILLON</option>
+        <option value="PAPIN">PAPIN</option>
+        <option value="PARC DES EXPOSITIONS">PARC DES EXPOSITIONS</option>
+        <option value="PARC MICAUD">PARC MICAUD</option>
+        <option value="PARE">PARE</option>
+        <option value="PARGUEZ">PARGUEZ</option>
+        <option value="PARKING CHAMARS">PARKING CHAMARS</option>
+        <option value="PASSERELLE">PASSERELLE</option>
+        <option value="PATEU">PATEU</option>
+
+        <option value="PATINOIRE PISCINE">PATINOIRE PISCINE</option>
+        <option value="PAUL BERT">PAUL BERT</option>
+        <option value="PAVIE">PAVIE</option>
+        <option value="PECLET">PECLET</option>
+        <option value="PELOUSE">PELOUSE</option>
+        <option value="PIEMONT">PIEMONT</option>
+        <option value="PIERRE ET MARIE CURIE">PIERRE ET MARIE CURIE</option>
+        <option value="PINGAUD">PINGAUD</option>
+        <option value="PISCINE MALLARME">PISCINE MALLARME</option>
+
+        <option value="PLACE GUYON">PLACE GUYON</option>
+        <option value="PLACE RISLER">PLACE RISLER</option>
+        <option value="PLANOISE">PLANOISE</option>
+        <option value="PLATINE">PLATINE</option>
+        <option value="PLENIERE">PLENIERE</option>
+        <option value="POINT DU JOUR">POINT DU JOUR</option>
+        <option value="POLE SPORTIF">POLE SPORTIF</option>
+        <option value="POLYCLINIQUE">POLYCLINIQUE</option>
+        <option value="POLYGONE">POLYGONE</option>
+
+        <option value="PONT DE BEURE">PONT DE BEURE</option>
+        <option value="PONT DES CRAS">PONT DES CRAS</option>
+        <option value="PONT SNCF">PONT SNCF</option>
+        <option value="PORT DOUVOT">PORT DOUVOT</option>
+        <option value="PORT JOINT">PORT JOINT</option>
+        <option value="PORTE RIVOTTE">PORTE RIVOTTE</option>
+        <option value="POSTE">POSTE</option>
+        <option value="PRE AU CLAIR">PRE AU CLAIR</option>
+        <option value="PREFECTURE">PREFECTURE</option>
+
+        <option value="PRES DE VAUX">PRES DE VAUX</option>
+        <option value="PROLABOR">PROLABOR</option>
+        <option value="PSB">PSB</option>
+        <option value="PUITS">PUITS</option>
+        <option value="QUATRE VENTS">QUATRE VENTS</option>
+        <option value="QUATROUILLOTS">QUATROUILLOTS</option>
+        <option value="RADIEUSE">RADIEUSE</option>
+        <option value="RECLUS">RECLUS</option>
+        <option value="REFUGE">REFUGE</option>
+
+        <option value="REMPARTS">REMPARTS</option>
+        <option value="RENE CHAR">RENE CHAR</option>
+        <option value="REPUBLIQUE">REPUBLIQUE</option>
+        <option value="RESIDENCE">RESIDENCE</option>
+        <option value="RESIDENCE MOINGEON">RESIDENCE MOINGEON</option>
+        <option value="RIVOTTE">RIVOTTE</option>
+        <option value="ROTONDE">ROTONDE</option>
+        <option value="SAINT AMOUR">SAINT AMOUR</option>
+        <option value="SAINT CLAUDE">SAINT CLAUDE</option>
+
+        <option value="SAINT JACQUES">SAINT JACQUES</option>
+        <option value="SAINT MARTIN">SAINT MARTIN</option>
+        <option value="SAINT MAURICE">SAINT MAURICE</option>
+        <option value="SAINT PIE X">SAINT PIE X</option>
+        <option value="SAINTE THERESE">SAINTE THERESE</option>
+        <option value="SALINS DE BREGILLE">SALINS DE BREGILLE</option>
+        <option value="SANATORIUM">SANATORIUM</option>
+        <option value="SANSONNETS">SANSONNETS</option>
+        <option value="SAPINS">SAPINS</option>
+
+        <option value="SARAGOSSE">SARAGOSSE</option>
+        <option value="SARRAIL">SARRAIL</option>
+        <option value="SAVARY">SAVARY</option>
+        <option value="SAVOIE">SAVOIE</option>
+        <option value="SCHWEITZER">SCHWEITZER</option>
+        <option value="SECURITE SOCIALE">SECURITE SOCIALE</option>
+        <option value="SEILER">SEILER</option>
+        <option value="SERVET">SERVET</option>
+        <option value="SIFFERT">SIFFERT</option>
+
+        <option value="SPORT NAUTIQUE">SPORT NAUTIQUE</option>
+        <option value="STADE LEO LAGRANGE">STADE LEO LAGRANGE</option>
+        <option value="STRASBOURG">STRASBOURG</option>
+        <option value="SUARD">SUARD</option>
+        <option value="TARRAGNOZ">TARRAGNOZ</option>
+        <option value="TEMIS">TEMIS</option>
+        <option value="TERMINUS CAMPUS">TERMINUS CAMPUS</option>
+        <option value="TERMINUS LA FAYETTE">TERMINUS LA FAYETTE</option>
+        <option value="THEATRE">THEATRE</option>
+
+        <option value="THOMAS">THOMAS</option>
+        <option value="THOURET">THOURET</option>
+        <option value="TILLEROYES">TILLEROYES</option>
+        <option value="TREPILLOT">TREPILLOT</option>
+        <option value="TREY">TREY</option>
+        <option value="UFR MEDECINE">UFR MEDECINE</option>
+        <option value="UFR SCIENCES">UFR SCIENCES</option>
+        <option value="UFR STAPS">UFR STAPS</option>
+        <option value="VAITE">VAITE</option>
+
+        <option value="VALERY">VALERY</option>
+        <option value="VALLIERES">VALLIERES</option>
+        <option value="VALLON">VALLON</option>
+        <option value="VALLON DU JOUR">VALLON DU JOUR</option>
+        <option value="VELOTTE">VELOTTE</option>
+        <option value="VERNOIS">VERNOIS</option>
+        <option value="VESOUL">VESOUL</option>
+        <option value="VICTOR GALLOIS">VICTOR GALLOIS</option>
+        <option value="VICTOR HUGO">VICTOR HUGO</option>
+
+        <option value="VIEILLEY">VIEILLEY</option>
+        <option value="VILLARCEAU">VILLARCEAU</option>
+        <option value="VIOLET">VIOLET</option>
+        <option value="VITTEL">VITTEL</option>
+        <option value="VIVARAIS">VIVARAIS</option>
+        <option value="VOLTAIRE">VOLTAIRE</option>
+        <option value="WEISS">WEISS</option>
+        <option value="WITTMANN">WITTMANN</option>
+        <option value="WYRSCH">WYRSCH</option>
+    </select>
 </fieldset>

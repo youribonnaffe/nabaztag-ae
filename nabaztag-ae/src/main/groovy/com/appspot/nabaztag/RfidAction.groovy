@@ -8,11 +8,11 @@ enum RfidAction {
 
     private final String label;
 
-    public RfidAction(String label){
-	this.label = label
+    public RfidAction(String label) {
+        this.label = label
     }
 
-    public String label(){
-	return label
+    public String label() {
+        return label
     }
 }

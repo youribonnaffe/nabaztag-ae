@@ -1,9 +1,5 @@
 package com.appspot.nabaztag
 
-import com.appspot.nabaztag.AmbientBlock
-import com.appspot.nabaztag.Packet
-import com.appspot.nabaztag.PingIntervalBlock
-
 class Mem {
 
 	static def lastMsg = -1
