@@ -5,7 +5,7 @@ enum RfidAction {
     tell_me_something("Tell me something"),
     ginko("Ginko"),
     play_music("Play music"),
-    christmas("Christmas tree");
+    choregraphy("Choregraphy");
 
     private final String label;
 

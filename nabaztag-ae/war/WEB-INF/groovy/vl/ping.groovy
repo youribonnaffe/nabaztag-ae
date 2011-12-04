@@ -7,6 +7,10 @@ import static com.appspot.nabaztag.Rabbit.Colors.*
 log.info params.toString()
 
 new Rabbit(params: params).with {
+    if(doubleClicked()){
+        reboot()
+    }
+
     if (is7AM()) {
         play = "http://95.81.147.3/franceinter/all/franceinter-32k.mp3"
     } else if (isHalfHour()) {

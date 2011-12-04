@@ -1,13 +1,35 @@
 package vl
 
 import com.appspot.nabaztag.choregraphy.Choregraphy
-import static com.appspot.nabaztag.choregraphy.Choregraphy.Colors.*
 import com.appspot.nabaztag.choregraphy.Choregraphy.Colors
+import static com.appspot.nabaztag.choregraphy.Choregraphy.Colors.*
+import static com.appspot.nabaztag.choregraphy.Choregraphy.Leds.*
 
 log.info "chor, params=" + params
 
 new Choregraphy().with {
-    it.tempo = 0x1
+    switch (params.type) {
+        case 'ambient':
+            it.tempo = 0xF
+            fade(it)
+            break;
+        case 'christmas':
+            it.tempo = 0xFA
+            def random = new Random(System.currentTimeMillis())
+            (0..100).each {range ->
+                it.led 0, MIDDLE, randomColor(random)
+                it.led 0, LEFT, randomColor(random)
+                it.led 0, RIGHT, randomColor(random)
+                it.led 0, NOSE, randomColor(random)
+
+                it.led 1, LEFT, randomColor(random)
+                it.led 0, RIGHT, randomColor(random)
+                it.led 0, MIDDLE, randomColor(random)
+                it.led 0, NOSE, randomColor(random)
+            }
+            break;
+    }
+
 /*
     leftRightAndMiddle it
     middleAndLeftRight it
@@ -17,41 +39,43 @@ new Choregraphy().with {
     leftToRight it, GREEN
     rightToLeft it
 */
-
-    fade(it)
     it.send response
 }
 
-private def leftRightAndMiddle(Choregraphy it) {
-    it.led 0, LEFT, RED
-    it.led 0, RIGHT, RED
-    it.led 1, MIDDLE, RED
+private randomColor(Random random) {
+    return [random.nextInt(255), random.nextInt(255), random.nextInt(255)]
+}
+
+private def leftRightAndMiddle(Choregraphy it, Colors color) {
+    it.led 0, LEFT, color
+    it.led 0, RIGHT, color
+    it.led 1, MIDDLE, color
     it.led 0, LEFT, NONE
     it.led 0, RIGHT, NONE
 }
 
-private def middleAndLeftRight(Choregraphy it) {
-    it.led 0, MIDDLE, RED
+private def middleAndLeftRight(Choregraphy it, Colors color) {
+    it.led 0, MIDDLE, color
     it.led 0, LEFT, NONE
     it.led 0, RIGHT, NONE
 
-    it.led 1, LEFT, RED
-    it.led 0, RIGHT, RED
+    it.led 1, LEFT, color
+    it.led 0, RIGHT, color
     it.led 0, MIDDLE, NONE
 
-    it.led 1, MIDDLE, RED
+    it.led 1, MIDDLE, color
     it.led 0, LEFT, NONE
     it.led 0, RIGHT, NONE
 }
 
 
-private def rightToLeft(Choregraphy it) {
-    it.led 0, RIGHT, RED
+private def rightToLeft(Choregraphy it, Colors color) {
+    it.led 0, RIGHT, color
 
-    it.led 1, MIDDLE, RED
+    it.led 1, MIDDLE, color
 
     it.led 1, RIGHT, NONE
-    it.led 0, LEFT, RED
+    it.led 0, LEFT, color
 
     it.led 1, MIDDLE, NONE
 

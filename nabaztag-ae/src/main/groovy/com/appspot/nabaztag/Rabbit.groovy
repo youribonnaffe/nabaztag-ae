@@ -28,6 +28,7 @@ class Rabbit {
     def leds = ["left": Colors.NONE, "middle": Colors.NONE, "right": Colors.NONE, "nose": Colors.NONE, "bottom": Colors.NONE]
 
     def choregraphy
+    def choregraphyPlay
     def say
     def play
 
@@ -74,7 +75,11 @@ class Rabbit {
             fullPacket = [0x7F, REBOOT, 0x0, 0x0, 0x1, 0x7F, 0xFF, 0xFF, 0xFF, 0xFF, 0xA]
 
         if (choregraphy) {
-            def chorCommand = "ID " + 138 + "\n" + "CH " + "broadcast/" + choregraphy + "\n"
+            def chorCommand = "ID " + 138 + "\n"
+            if (choregraphyPlay) {
+                chorCommand += "MS " + choregraphyPlay + "\n"
+            }
+            chorCommand += "CH " + "broadcast/" + choregraphy + "\n"
             def data = encode(chorCommand)
             fullPacket += [0xA, 0x0, 0x0, data.size()] + data
         }

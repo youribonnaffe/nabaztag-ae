@@ -38,9 +38,17 @@ try {
                 send response
             }
             break;
-        case RfidAction.christmas:
-            log.info text
-            //def packet = RabbitCommand.play(radio pere nowel)
+        case RfidAction.choregraphy:
+            log.info "chor"
+            new Rabbit().with {
+                choregraphy = 'chor?type=' + rfid.actionParam
+                if (rfid.actionParam == 'christmas') {
+                    //choregraphyPlay = "http://voxsc1.somafm.com:6604"
+                    //choregraphyPlay = "http://streaming204.radionomy.com/radio-yeye?group=14"
+                    //choregraphyPlay = "http://streaming205.radionomy.com/FD-RADIO-NOEL-CHRISTMAS-RADIO?group=14"
+                }
+                send response
+            }
             // TODO play chorecgraphy nowel
             break;
     }

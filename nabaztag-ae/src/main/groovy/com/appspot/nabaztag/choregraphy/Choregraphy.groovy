@@ -6,7 +6,8 @@ import groovy.transform.ToString
 class Choregraphy {
 
     enum Colors {
-        NONE([0, 0, 0]), RED([0xFF, 0, 0]), GREEN([0, 0xFF, 0]), BLUE([0, 0, 0xFF])
+        NONE([0, 0, 0]), RED([0xFF, 0, 0]), GREEN([0, 0xFF, 0]), BLUE([0, 0, 0xFF]),
+        GREY([192, 192, 192]), LIGHT_GREEN([173, 255, 47]), ORANGE([255, 165, 0]);
 
         Colors(bytes) { this.bytes = bytes}
 
@@ -46,6 +47,13 @@ class Choregraphy {
         packet += [0, 0]
     }
 
+    def led(step, Leds led, def bytes) {
+        packet += [step, Actions.LED.code]
+        packet += [led.code]
+        packet += bytes
+        packet += [0, 0]
+    }
+
     def leds(step, Colors color) {
         packet += [step, Actions.LEDS.code]
         packet += color.bytes
@@ -67,31 +75,5 @@ class Choregraphy {
         response.status = 200
 
     }
-
-    private def buildPacket() {
-        def fullPacket = [0x7F]
-        def pingIntervalPacket = [PING_INTERVAL, 0x0, 0x0, 0x1, interval]
-
-        fullPacket += pingIntervalPacket
-
-        def colorsPacket = [EARS_COLORS, 0x0, 0x0, 0x1C, 0x7F, 0xFF, 0xFF, 0xFF]
-
-        colorsPacket += [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ears.left, ears.right, 0, leds.left.ordinal(), leds.middle.ordinal(), leds.right.ordinal(), 0, 0]
-
-        fullPacket += colorsPacket
-
-        if (hasToReboot)
-            fullPacket = [0x7F, REBOOT, 0x0, 0x0, 0x1, 0x7F, 0xFF, 0xFF, 0xFF, 0xFF, 0xA]
-
-        if (choregraphy) {
-            def chorCommand = "ID " + 139 + "\n" + "CH " + "broadcast/" + choregraphy + "\n"
-            def data = encode(chorCommand)
-            fullPacket += [0xA, 0x0, 0x0, data.size()] + data
-        }
-
-        fullPacket += [0xFF, 0xA]
-        return fullPacket
-    }
-
 
 }
