@@ -2,12 +2,13 @@ package com.appspot.nabaztag
 
 import org.htmlcleaner.HtmlCleaner
 import org.htmlcleaner.SimpleXmlSerializer
+import java.net.URLEncoder
 
 class Ginko {
 
     public static String readTimeTable(String stop) {
         String htmlTimeTable = new URL("http://www.ginkotempo.com/TempoMobile/tempoMobile.do"
-            + "?choix_station=${stop}&methode=afficheStation").text
+            + "?choix_station=" + URLEncoder.encode(stop, "UTF-8") + "&methode=afficheStation").text
 
         HtmlCleaner cleaner = new HtmlCleaner();
         def node = cleaner.clean(htmlTimeTable)
