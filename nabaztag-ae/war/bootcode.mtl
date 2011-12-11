@@ -5648,7 +5648,7 @@ fun bottomled=
 	if !earDetecting then
 	if ((time-lasthttpevent)>LED_TIMEOUT) then led 4 0xff00ff // bloqu
 	else (
-	    let osc time_ms>>4 -> v in led 2 v
+	    let osc time_ms>>4 -> v in led 4 v
 	); // pulse violet
 	0;;
 
