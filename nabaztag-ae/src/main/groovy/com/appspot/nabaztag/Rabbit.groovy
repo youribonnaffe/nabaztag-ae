@@ -87,7 +87,7 @@ class Rabbit {
         if (say) {
             def command = "ID " + 138 + "\n"
             voiceProvider.convertTextToMP3(say).each {
-                command += "MS " + it + "\n"
+                command += "ST " + it + "\n"
             }
             def data = encode(command)
             fullPacket += [0xA, 0x0, 0x0, data.size()] + data
