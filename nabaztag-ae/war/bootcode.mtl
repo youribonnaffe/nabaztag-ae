@@ -2515,14 +2515,20 @@ var tab_osc={
 	79 81 84 87 90 93 96 99 103 106 109 112 115 118 121 124
 };;
 
-
+var color;;
+var tab_colors={ 0x010000 0x000100 0x000001 0x010100 0x000101 0x010001 0x010101 0x000101};;
 fun osc x=
+    let x -> y in
+    set color = (y >> 8)&7;
 	let (x>>6)&3 -> q in
 	let x&255 -> x in
-	if q==0 then tab_osc.x
-	else if q==1 then 255-tab_osc.(127-x)
-	else if q==2 then 255-tab_osc.(x-128)
-	else tab_osc.(255-x);;
+
+	if q==0 then (tab_osc.x)*tab_colors.(color)
+	else if q==1 then (255-tab_osc.(127-x))*tab_colors.(color)
+	else if q==2 then (255-tab_osc.(x-128))*tab_colors.(color)
+	else (
+	    (tab_osc.(255-x))*tab_colors.(color)
+    );;
 
 // ?? UNUSED ? [AS nov07]
 var midi_connect=
@@ -5641,7 +5647,9 @@ fun noseled=
 fun bottomled=
 	if !earDetecting then
 	if ((time-lasthttpevent)>LED_TIMEOUT) then led 4 0xff00ff // bloqu
-	else (let osc time_ms>>4 -> v in led 4 v*0x000100); // pulse violet
+	else (
+	    let osc time_ms>>4 -> v in led 2 v
+	); // pulse violet
 	0;;
 
 
