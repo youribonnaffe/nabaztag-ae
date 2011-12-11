@@ -22,7 +22,7 @@ private sendBootCodeSlowly(bootcode) {
         int available = fin.available();
         if (available > 0) {
             int bufferSize = available;
-            int BUFFER_SIZE = 1000;
+            int BUFFER_SIZE = 500;
             if (available > BUFFER_SIZE)
                 bufferSize = BUFFER_SIZE;
             byte[] buffer = new byte[bufferSize];
