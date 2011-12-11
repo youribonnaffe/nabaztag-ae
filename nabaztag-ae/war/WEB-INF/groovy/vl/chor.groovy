@@ -14,7 +14,7 @@ new Choregraphy().with {
             fade(it)
             break;
         case 'christmas':
-            it.tempo = 0xFA
+            it.tempo = 0xFD
             def random = new Random(System.currentTimeMillis())
             (0..100).each {range ->
                 it.led 0, MIDDLE, randomColor(random)
